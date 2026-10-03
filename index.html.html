@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Love !! 💖 | Oct 4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --pink-main: #ff4d8d;
+            --pink-soft: #ff85a2;
+            --pink-bg: #fff0f5;
+            --dark-card: #1e1b2e;
+            --dark-bg: #12101e;
+            --code-purple: #c792ea;
+            --code-green: #c3e88d;
+            --code-yellow: #ffcb6b;
+            --code-blue: #82aaff;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--dark-bg);
+            color: #e2e8f0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Floating Hearts Animation */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 77, 141, 0.25);
+            font-size: 20px;
+            animation: floatUp 8s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.8) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Card */
+        .header-card {
+            background: rgba(30, 27, 46, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 77, 141, 0.3);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(255, 77, 141, 0.2);
+        }
+
+        .dev-badge {
+            display: inline-block;
+            background: rgba(255, 77, 141, 0.15);
+            color: var(--pink-soft);
+            border: 1px solid var(--pink-main);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, var(--pink-soft), var(--pink-main));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .love-paragraph {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 4px solid var(--pink-main);
+            text-align: left;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+            line-height: 1.8;
+        }
+
+        .celebrate-btn {
+            background: linear-gradient(135deg, var(--pink-main), #d63384);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 141, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .celebrate-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(255, 77, 141, 0.6);
+        }
+
+        /* Photo Gallery Grid */
+        .gallery-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .polaroid {
+            background: #ffffff;
+            padding: 15px 15px 25px 15px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+            color: #222;
+        }
+
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.02);
+            box-shadow: 0 15px 30px rgba(255, 77, 141, 0.3);
+            z-index: 5;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .polaroid-caption {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Terminal Card */
+        .terminal-card {
+            background: #181624;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .terminal-header {
+            background: #252238;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-title {
+            margin-left: 10px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .code-keyword { color: var(--code-purple); }
+        .code-func { color: var(--code-blue); }
+        .code-str { color: var(--code-green); }
+        .code-comment { color: #6272a4; font-style: italic; }
+
+        .interactive-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .code-btn {
+            background: rgba(255, 77, 141, 0.15);
+            border: 1px solid var(--pink-main);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .code-btn:hover {
+            background: var(--pink-main);
+        }
+
+        .output-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 8px;
+            border-left: 3px solid var(--code-green);
+            display: none;
+            color: var(--code-green);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart-bg" id="heartBg"></div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-card">
+            <span class="dev-badge">&lt;coded with love by LILU /&gt;</span>
+            <p style="color: var(--pink-soft); font-weight: 600; margin-bottom: 5px;">I mess up in code but tried somethig for my babestyy</p>
+            <h1>Happy Birthday Love !! 💖</h1>
+
+            <div class="love-paragraph">
+                I know I'm not with you today but I just want you to know that you make everything bettter just by existing you have no idea how much you mean to me how much you make my life easier just by being in it I love you so much that on a random tuesday I decided to polish some code skill(liluuu bad) to build this for you huihuihuihui......your liluu miss you everyyy single day missing you lttle extra today but we'll meet sooon babeeluu till then havee a great great year ahead !! love LILU!
+            </div>
+
+            <button class="celebrate-btn" onclick="launchFireworks()">
+                <span>🎉 Click For Birthday Magic!</span>
+            </button>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <h2 class="gallery-title">📸 Trip to Little Babeluu Galleryy Where Lilu is Happiest with Babeluu</h2>
+        <div class="photo-grid">
+            <div class="polaroid">
+                "<a href="https://ibb.co/KjCfKHLr"><img src="https://i.ibb.co/N6wJTzmy/Whats-App-Image-2026-10-03-at-4-43-40-PM-1.jpg" alt="My MAN" border="0"></a>" 
+                <div class="polaroid-caption">My MAN 💖</div>
+            </div>
+
+       <div class="polaroid">
+                <a href="https://ibb.co/WNzGK3qz"><img src="https://i.ibb.co/zW2Qf5j2/holding-hands.jpg" alt="Your Hands Fits in Mine Like it's meant for me !!" border="0" /></a>
+                <div class="polaroid-caption">Your Hands Fits in Mine Like it's meant for me !!</div>
+            </div>
+
+            <div class="polaroid">
+                <a href="https://ibb.co/Txngr7v1"><img src="https://i.ibb.co/67pWNTn8/nature-escape.jpg" alt="Nature Escape" border="0" /></a>
+                <div class="polaroid-caption">Our Little Risky Monsoon Trek ❤️</div>
+            </div>
+
+            <div class="polaroid">
+                <a href="https://ibb.co/R4HVhq6G"><img src="https://i.ibb.co/Kzy3NJsc/cafe-date.jpg" alt="Lilu happy with Babeluu" border="0" /></a>
+                <div class="polaroid-caption">Cute cafe date with my babestyy at Rishikesh☕🥰</div>
+            </div>
+
+            <div class="polaroid">
+                <a href="https://ibb.co/1JXWxYS4"><img src="https://i.ibb.co/n81JSqWK/painting-moment.jpg" alt="Picasoo Babeluu" border="0" /></a>
+                <div class="polaroid-caption">Picasoo Babeluu 🎨✨</div>
+            </div>
+
+            <div class="polaroid">
+                <a href="https://ibb.co/q3QZNQvH"><img src="https://i.ibb.co/bM9fs9k4/Sweet-Moments.jpg" alt="Happiest with Babestyy" border="0" /></a>
+                <div class="polaroid-caption">PYAARUUU MOMENTS 💕</div>
+            </div>
+        </div>
+
+        <!-- Developer Interactive Code Box -->
+        <div class="terminal-card">
+            <div class="terminal-header">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+                <span class="terminal-title">lilu_love_script.js</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="code-comment">// A small script written specially for my babeeluu</span></div>
+                <div><span class="code-keyword">const</span> boyfriend = {</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;name: <span class="code-str">"My Handsome Person"</span>,</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;birthday: <span class="code-str">"4th October"</span>,</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;status: <span class="code-str">"Safest Place & Favorite Person"</span>,</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;liluLoveLevel: <span class="code-keyword">Infinity</span></div>
+                <div>};</div>
+                <br>
+                <div><span class="code-keyword">function</span> <span class="code-func">checkLoveStatus</span>() {</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-str">"Missing you extra today, but meeting super soon! ❤️"</span>;</div>
+                <div>}</div>
+
+                <div class="interactive-buttons">
+                    <button class="code-btn" onclick="runCode('miss')">&gt; run reasonsIMissYou()</button>
+                    <button class="code-btn" onclick="runCode('kiss')">&gt; sendVirtualKiss()</button>
+                    <button class="code-btn" onclick="runCode('bday')">&gt; wishHappyBirthday()</button>
+                </div>
+
+                <div class="output-box" id="terminalOutput"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Handcrafted with ❤️ by LILU for October 4th | Yours forever!
+    </footer>
+
+    <script>
+        // Floating Hearts
+        function createHearts() {
+            const container = document.getElementById('heartBg');
+            const hearts = ['💖', '💕', '💗', '✨', '🌸'];
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = (Math.random() * 5) + 's';
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Confetti Fireworks
+        function launchFireworks() {
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        }
+
+        window.onload = function() {
+            setTimeout(launchFireworks, 500);
+        };
+
+        // Interactive Code Commands
+        function runCode(type) {
+            const output = document.getElementById('terminalOutput');
+            output.style.display = 'block';
+            if (type === 'miss') {
+                output.innerText = '> OUTPUT: Missing you every single day! You make my life 1000x better just by being in it huihuihuihui 💖';
+            } else if (type === 'kiss') {
+                output.innerText = '> OUTPUT: 💋 10000+ Virtual kisses sent to my babeeluu!';
+            } else if (type === 'bday') {
+                output.innerText = '> OUTPUT: 🎉 Happy Birthday Love!! Have the most fantastic year ahead!';
+                launchFireworks();
+            }
+        }
+    </script>
+</body>
+</html>
